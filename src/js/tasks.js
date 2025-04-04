@@ -35,7 +35,7 @@ function addTask(event) {
     taskBD.push(task)
     localStorage.setItem('task', JSON.stringify(taskBD))
 
-    showModal('#115923', iconSuccess, 'Tafefa criada com sucesso!')
+    showModal('#115923', iconSuccess, 'Tarefa criada com sucesso!')
     updateTasks()
     document.querySelector('.modal-section').style.display = 'none'
 }
@@ -54,7 +54,7 @@ function updateTasks() {
                 <td>${task.description}</td>
                 <td>${task.priority}</td>
                 <td>
-                    <select class="select-style" id="status_task_${index}">
+                    <select class="select-status">
                         <option value="pendente" ${task.status === 'pendente' ? 'selected' : ''}>Pendente</option>
                         <option value="concluido" ${task.status === 'concluido' ? 'selected' : ''}>Concluído</option>
                     </select>
@@ -67,22 +67,22 @@ function updateTasks() {
                 </td>
             </tr>
         `
-        
-        document.querySelector('#title_task').value = ''
-        document.querySelector('#description_task').value = ''
-        document.querySelector('#date_create').value = ''
-        document.querySelector('#date_due').value = ''
     })
 
-    taskBD.forEach((task, index) => {
-        let select = document.getElementById(`status_task_${index}`)
-        select.value === 'pendente' ? select.style.backgroundColor = '#E6C809' : select.style.backgroundColor = '#47B300'
-        select.addEventListener("change", (event) => {
+    document.querySelectorAll('.select-status').forEach((select, index) => {
+        select.style.backgroundColor = taskBD[index].status === 'pendente' ? '#E6C809' : '#47B300'
+
+        select.addEventListener('change', (event) => {
             taskBD[index].status = event.target.value
             localStorage.setItem('task', JSON.stringify(taskBD))
-            window.location.reload()
-        }); 
+            select.style.backgroundColor = event.target.value === 'pendente' ? '#E6C809' : '#47B300'
+        })
     })
+
+    document.querySelector('#title_task').value = ''
+    document.querySelector('#description_task').value = ''
+    document.querySelector('#date_create').value = ''
+    document.querySelector('#date_due').value = ''
 }
 
 function editTask(i) {
@@ -161,11 +161,11 @@ function filterTask() {
 }
 
 function updateFilter(filteredList = taskBD) {
-    let listTask = document.querySelector('#list_task');
-    listTask.innerHTML = '';
+    let listTask = document.querySelector('#list_task')
+    listTask.innerHTML = ''
 
     filteredList.forEach((task, index) => {
-        let orderID = index <= 9 ? `0${index}` : index;
+        let orderID = index <= 9 ? `0${index}` : index
 
         listTask.innerHTML += `
             <tr>
@@ -174,9 +174,9 @@ function updateFilter(filteredList = taskBD) {
                 <td>${task.description}</td>
                 <td>${task.priority}</td>
                 <td>
-                    <select class="select-style" id="status_task">
-                        <option value="pendente">Pendente</option>
-                        <option value="concluido">Concluído</option>
+                    <select class="select-status">
+                        <option value="pendente" ${task.status === 'pendente' ? 'selected' : ''}>Pendente</option>
+                        <option value="concluido" ${task.status === 'concluido' ? 'selected' : ''}>Concluído</option>
                     </select>
                 </td>
                 <td>${task.create}</td>
@@ -186,8 +186,18 @@ function updateFilter(filteredList = taskBD) {
                     <button class="btn-delete" onclick="deleteTask(${index})"><i class="fa-solid fa-trash"></i></button>
                 </td>
             </tr>
-        `;
-    });
+        `
+    })
+
+    document.querySelectorAll('.select-status').forEach((select, index) => {
+        select.style.backgroundColor = taskBD[index].status === 'pendente' ? '#E6C809' : '#47B300'
+
+        select.addEventListener('change', (event) => {
+            taskBD[index].status = event.target.value
+            localStorage.setItem('task', JSON.stringify(taskBD))
+            select.style.backgroundColor = event.target.value === 'pendente' ? '#E6C809' : '#47B300'
+        })
+    })
 }
 
 document.querySelector('#btn_search').addEventListener('click', filterTask)
