@@ -6,7 +6,7 @@
         <!-- import font awesome cdn -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         
-        <script  type="module" src="../js/tasks.js" defer></script>
+        
         <!-- styles CSS -->
         <link rel="stylesheet" href="../css/style.css">
         <title>MANAGEX - Tarefas</title>
@@ -74,13 +74,14 @@
                             <th class="column-btns"></th>
                         </tr>
                     </thead>
-                    <tbody id="list_task"></tbody>
+                    <tbody id="tableList_tasks"></tbody>
                 </table>
             </div>
         </div>
     </section>
-<!-- Modal add -->
+<!-- Modal Form add -->
     <section class="modal-section">
+        <div class="background-modal"></div>
         <div class="modal">
             <div class="modal-header">
                 <h1 class="logo-modal">MANAGEX</h1>
@@ -128,5 +129,7 @@
             </form>
         </div>
     </section>
+
+    <script  type="module" src="../js/task/main.js" defer></script>
 </body>
 </html>

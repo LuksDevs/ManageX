@@ -177,25 +177,27 @@
 
 /* Modal styles */
 .modal-section {
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
     background-color: #0000008c;
     position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    display: none;
-    justify-content: center;
-    align-items: flex-start;
-
+        
     & .modal {
         animation: fromBottom 1s ease-in-out;
         border-radius: 10px;
         background-color: #fff;
+        height: 95%;
         position: relative;
-        padding: 10px;
-        top: 50px;
+        padding: 20px;
+        top: 10px;
+        overflow-y: auto;
         width: 300px;
-        
+                
         & h1 {
             color: var(--color-primary);
             margin-block-end: 20px;
@@ -217,7 +219,7 @@
         & #add_task {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 10px;
 
             & label {
                 font-weight: 300;
@@ -288,6 +290,7 @@
                 color: #fff;
                 cursor: pointer;
                 font-size: 16px;
+                margin-block-start: 15px;
                 margin-inline: auto;
                 padding: 5px;
                 transition: background-color 1s ease, box-shadow 1s ease;

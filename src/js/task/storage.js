@@ -2,7 +2,7 @@
 const TASK_KEY = 'task'
 
 export function getTasks() {
-    return JSON.parse(localStorage.getItem(TASK_KEY))
+    return JSON.parse(localStorage.getItem(TASK_KEY)) || []
 }
 
 export function saveTasks(tasks){
