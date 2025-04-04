@@ -1,7 +1,4 @@
 
-
-
-
 export function showModal(rgb, icon, text) {
 
     let displayModal = document.getElementById('showmodal')

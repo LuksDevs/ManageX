@@ -13,8 +13,8 @@ function addTask(event) {
     let description = document.querySelector('#description_task').value
     let priority = document.querySelector('input[name="priority"]:checked').value
     let dateCreate = document.querySelector('#date_create').value
-    let elementDateDue = document.querySelector('#date_due')
-    if(title === '' || description === '' || dateCreate === '') {
+    let elementDateDue = document.querySelector('#date_due') // alteração
+    if(title === '' || description === '' || dateCreate === '') { // alteração
         showModal('#8C031C', iconError, 'Todos os campos obrigatórios devem ser preenchidos!')
         return
     }
