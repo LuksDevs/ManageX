@@ -46,59 +46,56 @@
             </ul>
         </nav>
     </header>
-    <section class="tasks">
-        <div class="container-tasks">
-            <div class="functions-tasks">
-                <div class="box-btn">
-                    <button type="button" id="btn_add_task"><i class="fa-solid fa-table-list"></i> Criar uma Tarefas</button>
-                </div>
-                <div class="box-search">
-                    <input type="text" id="search_task" placeholder="Pesquise uma tarefa...">
-                    <button type="button" id="btn_search">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                </div>
-            </div>
 
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th onchange="">Order ID</th>
-                            <th>Título</th>
-                            <th>Descrição</th>
-                            <th>Prioridade</th>
-                            <th>Status</th>
-                            <th>Data de Criação</th>
-                            <th>Data de Vencimento</th>
-                            <th class="column-btns"></th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableList_tasks"></tbody>
-                </table>
+    <section class="container-tables">
+        <div class="menu-table">
+            <button type="button" id="btn_add_task" class="btn-open-modal-add"><i class="fa-solid fa-plus"></i> Nova Tarefa</button>
+            <div class="box-search">
+                <input type="text" id="search_task" placeholder="Search...">
+                <button type="button" id="btn_search_task">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
             </div>
         </div>
+
+        <div class="box-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Título</th>
+                        <th>Descrição</th>
+                        <th>Prioridade</th>
+                        <th>Status</th>
+                        <th>Data de Criação</th>
+                        <th>Data de Vencimento</th>
+                        <th class="column-btn"></th>
+                    </tr>
+                </thead>
+                <tbody id="tableList_tasks"></tbody>
+            </table>
+        </div>
     </section>
+
 <!-- Modal Form add -->
     <section class="modal-section">
-        <div class="background-modal"></div>
         <div class="modal">
             <div class="modal-header">
-                <h1 class="logo-modal">MANAGEX</h1>
-                <button id="btn_close_modal"><i class="fa-solid fa-xmark"></i></button>
+                <h1>MANAGEX</h1>
+                <button id="btn_close_modal"><i class="fa-solid fa-caret-left"></i></button>
             </div>
             <form id="add_task">
-                <div class="box-title">
+                <div>
                     <label for="title_task">Título:</label>
                     <input type="text" placeholder="Título da tarefa" id="title_task">
                 </div>
                
-                <div class="box-description">
+                <div>
                     <label for="description_task">Descrição:</label>
                     <textarea id="description_task" placeholder="Descrição da tarefa" maxlength="100"></textarea>
                 </div>
 
-                <div class="box-priority">
+                <div>
                     <label>Prioridade: </label>
                     <label for="priority_low">
                         <input type="radio" id="priority_low" name="priority" value="Baixa" checked>
@@ -124,7 +121,7 @@
                     <input type="date" id="date_due">
                 </div>
 
-                <button id="btn_create_task"><i class="fa-solid fa-table-list"></i> Criar tarefa</button>
+                <button id="btn_create_task"><i class="fa-solid fa-plus"></i> Adicionar Tarefa</button>
                 <button id="btn_edit_task"><i class="fa-solid fa-pen-to-square"></i> Editar tarefa</button>
             </form>
         </div>

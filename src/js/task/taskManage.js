@@ -28,7 +28,7 @@ export function addTask(event) {
         priority,
         create: dateCreate,
         validity: dateDue,
-        status: ''
+        status: 'pendente'
     }
 
     tasks.push(task)
