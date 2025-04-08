@@ -112,6 +112,52 @@ export function clearFormFieldsUser() {
     document.querySelector('#tel_user').value = ''
     document.querySelector('#position_user').value = ''
 }
+
+// companies
+export function loadCompanie(companieList) {
+    let tableList = document.querySelector('#tableList_companies')
+    tableList.innerHTML = ''
+
+    companieList.forEach((companie, index) => {
+        let id = String(index + 1).padStart(2, '0')
+
+        tableList.innerHTML += `
+            <tr>
+                <td>${id}</td>
+                <td>${companie.companie}</td>
+                <td>${companie.cnpj}</td>
+                <td>${companie.address}</td>
+                <td>${companie.telephone}</td>
+                <td>${companie.email}</td>
+                <td>${companie.setor}</td>
+                <td>${companie.date}</td>
+                <td class="box-btn-table">
+                    <button class="btn-edit" onclick="editCompanie(${index})"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button class="btn-delete" onclick="deleteCompanie(${index})"><i class="fa-solid fa-trash"></i></button>
+                </td>
+            </tr>
+        ` 
+    })
+}
+
+export function fillFormForEditCompanie(companie) {
+    document.querySelector('#name_companie').value = companie.companie
+    document.querySelector('#cnpj_companie').value = companie.cnpj
+    document.querySelector('#address_companie').value = companie.address
+    document.querySelector('#tel_companie').value = companie.telephone
+    document.querySelector('#email_companie').value = companie.email
+    document.querySelector('#setor').value = companie.setor
+}
+
+export function clearFormFieldsCompanie() {
+    document.querySelector('#name_companie').value = ''
+    document.querySelector('#cnpj_companie').value = ''
+    document.querySelector('#address_companie').value = ''
+    document.querySelector('#tel_companie').value = ''
+    document.querySelector('#email_companie').value = ''
+    document.querySelector('#setor').value = ''
+}
+
 // Open/Close Form Modal
 export function openFormModal() {
     document.querySelector('.modal-section').style.display = 'block'

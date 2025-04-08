@@ -41,6 +41,7 @@ export function addUser(event) {
 
     showModal('#115923', iconSuccess, 'Usuário adicionado com sucesso!')
     loadUsers(users)
+    clearFormFieldsUser()
     closeFormModal()
 }
 
