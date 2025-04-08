@@ -10,7 +10,7 @@
 /* Modal global style */
 .modal-section {
     background-color: rgba(0, 0, 0, 0.5);
-    display: none;
+    display: none; /* ================ */
     width: 100vw;
     height: 100vh;
     position: absolute;
@@ -25,6 +25,13 @@
         overflow-y: auto;
         height: 100vh;
         width: 350px;
+
+        & label {
+            color: #000;
+            display: block;
+            font-weight: 300;
+            margin-bottom: 5px;
+        }
 
         & .modal-header {
             margin-block-end: 20px;
@@ -51,17 +58,11 @@
 }
 
 /* Form Modal task */
-    #add_task {
+    #form_task {
         display: flex;
         flex-direction: column;
         gap: 10px;
 
-        & label {
-            color: #000;
-            display: block;
-            font-weight: 300;
-            margin-bottom: 5px;
-        }
         & input[type="text"] {
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -129,4 +130,101 @@
     }
 /* Modal users */
 
+#form_users {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    & input {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        outline: none;
+        padding: 5px;
+        width: 100%;
+
+        &:focus {
+            border: 1px solid var(--color-primary);
+        }
+    }
+    & select {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        outline: none;
+        padding: 5px;
+        width: 100%;
+    }
+    & #btn_add_user, #btn_edit_user {
+        background-color: var(--color-primary);
+        border-radius: 5px;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        margin-block-start: 25px;
+        margin-inline: auto;
+        padding: 5px;
+        transition: all .5s ease-in;
+        width: 85%;
+
+        &:hover {
+            background-color: #b60202;
+        }
+    }
+    #btn_edit_user {
+        display: none;
+    }
+}
+
 /* Modal companies */
+
+#form_companie {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    & input {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        outline: none;
+        padding: 5px;
+        width: 100%;
+
+        &:focus {
+            border: 1px solid var(--color-primary);
+        }
+    }
+    & select {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        outline: none;
+        padding: 5px;
+        text-align: center;
+        width: 100%;
+    }
+    #btn_add_companie, #btn_edit_companie {
+        background-color: var(--color-primary);
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        margin-block-start: 25px;
+        margin-inline: auto;
+        padding: 5px;
+        transition: all .5s ease-in;
+        width: 85%;
+
+        &:hover {
+            background-color: #b60202;
+        }
+    }
+    #btn_edit_companie {
+        display: none;
+    }
+}

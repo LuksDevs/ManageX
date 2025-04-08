@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- import font awesome cdn -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+        
         <!-- styles CSS -->
         <link rel="stylesheet" href="../css/style.css">
-        <title>MANAGEX - Usuários</title>
+        <title>MANAGEX - Tarefas</title>
     </head>
-<body>
+<body id="task_body">
     <header>
         <nav id="nav">
             <a href="../../index.html">
@@ -44,5 +46,137 @@
             </ul>
         </nav>
     </header>
+
+    <section class="container-tables">
+        <div class="menu-table">
+            <button type="button" id="btn_open_modal" class="btn-open-modal-add"><i class="fa-solid fa-user-plus"></i> Novo Usuário</button>
+            <div class="box-search">
+                <input type="text" id="search_user" placeholder="Search...">
+                <button type="button" id="btn_search_user">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="box-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                        <th>Telefone</th>
+                        <th>Cargo/Função</th>
+                        <th>Status </th>
+                        <th>Data de Cadastro</th>
+                        <th class="column-btn"></th>
+                    </tr>
+                </thead>
+                <tbody id="tableList_users"></tbody>
+            </table>
+        </div>
+    </section>
+
+<!-- Modal Form add -->
+    <section class="modal-section">
+        <div class="modal">
+            <div class="modal-header">
+                <h1>MANAGEX</h1>
+                <button id="btn_close_modal"><i class="fa-solid fa-caret-left"></i></button>
+            </div>
+            <form id="form_users">
+                <div>
+                    <label for="name_user">Nome: </label>
+                    <input type="text" id="name_user" placeholder="Nome Sobrenome">
+                </div>
+                <div>
+                    <label for="email_user">E-mail:</label>
+                    <input type="email" id="email_user" placeholder="email@user.com">
+                </div>
+                <div>
+                    <label for="tel_user">Telefone:</label>
+                    <input type="tel" id="tel_user" placeholder="(99) 9 9999-9999">
+                </div>
+
+                <div>
+                    <label for="position_user">Cargo:</label>
+                    <select id="position_user">
+                        <option value="">-- Selecionar Cargo --</option>
+                        <optgroup label="Área Administrativa / Corporativa">
+                            <option value="Diretor Executivo">Diretor Executivo (CEO)</option>
+                            <option value="Diretor Financeiro">Diretor Financeiro (CFO)</option>
+                            <option value="Diretor de Operações">Diretor de Operações (COO)</option>
+                            <option value="Gerente Administrativo">Gerente Administrativo</option>
+                            <option value="Assistente Administrativo">Assistente Administrativo</option>
+                            <option value="Secretária Executiva">Secretária Executiva</option>
+                            <option value="Analista Administrativo">Analista Administrativo</option>
+                        </optgroup>
+
+                        <optgroup label="Tecnologia da Informação (TI)">
+                            <option value="Desenvolvedor Front-End">Desenvolvedor Front-End</option>
+                            <option value="Desenvolvedor Back-End">Desenvolvedor Back-End</option>
+                            <option value="Desenvolvedor Full Stack">Desenvolvedor Full Stack</option>
+                            <option value="Analista de Sistemas">Analista de Sistemas</option>
+                            <option value="Engenheiro de Software">Engenheiro de Software</option>
+                            <option value="Técnico de Suporte">Técnico de Suporte</option>
+                            <option value="Especialista em Segurança da Informação">Especialista em Segurança da Informação</option>
+                            <option value="Gerente de TI">Gerente de TI</option>
+                        </optgroup>
+
+                        <optgroup label="Financeiro / Contábil">
+                            <option value="Analista Financeiro">Analista Financeiro</option>
+                            <option value="Contador">Contador</option>
+                            <option value="Assistente Financeiro">Assistente Financeiro</option>
+                            <option value="Tesoureiro">Tesoureiro</option>
+                            <option value="Auditor Interno">Auditor Interno</option>
+                            <option value="Controlador Financeiro">Controlador Financeiro</option>
+                        </optgroup>
+
+                        <optgroup label="Marketing e Vendas">
+                            <option value="Diretor de Marketing">Diretor de Marketing (CMO)</option>
+                            <option value="Gerente de Marketing">Gerente de Marketing</option>
+                            <option value="Analista de Marketing Digital">Analista de Marketing Digital</option>
+                            <option value="Social Media">Social Media</option>
+                            <option value="Representante Comercial">Representante Comercial</option>
+                            <option value="Gerente de Vendas">Gerente de Vendas</option>
+                            <option value="Executivo de Contas">Executivo de Contas</option>
+                        </optgroup>
+
+                        <optgroup label="Recursos Humanos (RH)">
+                            <option value="Gerente de RH">Gerente de RH</option>
+                            <option value="Analista de RH">Analista de RH</option>
+                            <option value="Assistente de RH">Assistente de RH</option>
+                            <option value="Recrutador">Recrutador</option>
+                            <option value="Business Partner">Business Partner</option>
+                            <option value="Coordenador de T&D">Coordenador de Treinamento e Desenvolvimento</option>
+                        </optgroup>
+
+                        <optgroup label="Operações e Produção">
+                            <option value="Supervisor de Produção">Supervisor de Produção</option>
+                            <option value="Operador de Máquinas">Operador de Máquinas</option>
+                            <option value="Técnico de Manutenção">Técnico de Manutenção</option>
+                            <option value="Engenheiro de Produção">Engenheiro de Produção</option>
+                            <option value="Inspetor de Qualidade">Inspetor de Qualidade</option>
+                            <option value="Auxiliar de Produção">Auxiliar de Produção</option>
+                        </optgroup>
+
+                        <optgroup label="Serviços Gerais">
+                            <option value="Auxiliar de Limpeza">Auxiliar de Limpeza</option>
+                            <option value="Porteiro">Porteiro</option>
+                            <option value="Zelador">Zelador</option>
+                            <option value="Cozinheiro">Cozinheiro</option>
+                            <option value="Motorista">Motorista</option>
+                            <option value="Recepcionista">Recepcionista</option>
+                        </optgroup>
+                    </select>
+                </div>
+                
+                <button type="button" id="btn_add_user"><i class="fa-solid fa-user-plus"></i> Adicionar Usuário</button>
+                <button type="button" id="btn_edit_user"><i class="fa-solid fa-pen-to-square"></i> Editar tarefa</button>
+            </form>
+        </div>
+    </section>
+
+    <script  type="module" src="../js/users/main.js" defer></script>
 </body>
 </html>

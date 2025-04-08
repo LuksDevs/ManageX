@@ -1,6 +1,6 @@
 import { getTasks, saveTasks } from './storage.js'
 import { showModal } from '../modal.js'
-import { openFormModal, closeFormModal, clearFormFields, loadTasks, fillFormForEdit } from './ui.js'
+import { openFormModal, closeFormModal, clearFormFieldsTask, loadTasks, fillFormForEditTask } from '../ui.js'
 
 let tasks = getTasks()
 
@@ -36,13 +36,13 @@ export function addTask(event) {
 
     showModal('#115923', iconSuccess, 'Tarefa criada com sucesso!')
     loadTasks(tasks)
-    clearFormFields()
+    clearFormFieldsTask()
     closeFormModal()
 }
 
 export function editTask(index) {
     const task = tasks[index]
-    fillFormForEdit(task)
+    fillFormForEditTask(task)
 
     const btnEdit = document.querySelector('#btn_edit_task')
     const btnCreate = document.querySelector('#btn_create_task')
@@ -72,7 +72,7 @@ export function editTask(index) {
         saveTasks(tasks)
         showModal('#115923', iconSuccess, 'Tarefa editada com sucesso!')
         loadTasks(tasks)
-        clearFormFields()
+        clearFormFieldsTask()
         closeFormModal()
 
         newBtn.style.display = 'none'

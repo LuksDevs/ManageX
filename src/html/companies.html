@@ -5,11 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- import font awesome cdn -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+        
         <!-- styles CSS -->
         <link rel="stylesheet" href="../css/style.css">
-        <title>MANAGEX - Empresas</title>
+        <title>MANAGEX - Tarefas</title>
     </head>
-<body>
+<body id="task_body">
     <header>
         <nav id="nav">
             <a href="../../index.html">
@@ -44,5 +46,114 @@
             </ul>
         </nav>
     </header>
+
+    <section class="container-tables">
+        <div class="menu-table">
+            <button type="button" id="btn_open_companie" class="btn-open-modal-add"><i class="fa-solid fa-user-plus"></i> Novo Usuário</button>
+            <div class="box-search">
+                <input type="text" id="search_companies" placeholder="Search...">
+                <button type="button" id="btn_search_companies">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="box-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Empresa</th>
+                        <th>CNPJ</th> <!-- 21.036.654/0001-45 -->
+                        <th>Endereço</th>
+                        <th>Telefone</th>
+                        <th>E-mail</th>
+                        <th>Setor de Atuação</th>
+                        <th>Data de Cadastro</th>
+                        <th class="column-btn"></th>
+                    </tr>
+                </thead>
+                <tbody id="tableList_companies">
+                    <tr>
+                        <td>01</td>
+                        <td>Joca transport</td>
+                        <td>21.036.654/0001-45</td>
+                        <td>Rua da Noia, N°420</td>
+                        <td>(99) 9 9999-9999</td>
+                        <td>jocatransport@gmail.com</td>
+                        <td>Vendas ilicitas</td>
+                        <td>10/02/2000</td>
+                        <td>
+                            <button>editar</button>
+                            <button>deletar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+<!-- Modal Form add -->
+    <section class="modal-section">
+        <div class="modal">
+            <div class="modal-header">
+                <h1>MANAGEX</h1>
+                <button id="btn_close_modal"><i class="fa-solid fa-caret-left"></i></button>
+            </div>
+            <form id="form_companie">
+                <div>
+                    <label for="name_companie">Nome da Empresa:</label>
+                    <input type="text" id="name_companie" placeholder="Empresa">
+                </div>
+                <div>
+                    <label for="cnpj_companie">CNPJ</label>
+                    <input type="text" id="cnpj_companie" placeholder="00.000.000/0000-00">
+                </div>
+                <div>
+                    <label for="address_companie">Endereço:</label>
+                    <input type="text" id="address_companie" placeholder="Endereço">
+                </div>
+                <div>
+                    <label for="tel_companie">Telefone:</label>
+                    <input type="tel" id="tel_companie" placeholder="(99) 9 9999-9999">
+                </div>
+                <div>
+                    <label for="email_companie">E-mail</label>
+                    <input type="email" id="email_companie" placeholder="companie@email.com">
+                </div>
+                <div>
+                    <label for="setorAtuacao">Setor de Atuação:</label>
+                    <select id="setorAtuacao" name="setorAtuacao">
+                        <option value="">Selecione o setor</option>
+                        <option value="Administrativo">Administrativo</option>
+                        <option value="Financeiro">Financeiro</option>
+                        <option value="Recursos Humanos">Recursos Humanos (RH)</option>
+                        <option value="Tecnologia da Informação">Tecnologia da Informação (TI)</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Vendas">Vendas</option>
+                        <option value="Comercial">Comercial</option>
+                        <option value="Jurídico">Jurídico</option>
+                        <option value="Logística">Logística</option>
+                        <option value="Compras">Compras</option>
+                        <option value="Operações">Operações</option>
+                        <option value="Produção">Produção</option>
+                        <option value="Engenharia">Engenharia</option>
+                        <option value="Qualidade">Controle de Qualidade</option>
+                        <option value="Suporte Técnico">Suporte Técnico</option>
+                        <option value="Atendimento ao Cliente">Atendimento ao Cliente</option>
+                        <option value="Pesquisa e Desenvolvimento">Pesquisa e Desenvolvimento (P&D)</option>
+                        <option value="Serviços Gerais">Serviços Gerais</option>
+                        <option value="Educação e Treinamento">Educação e Treinamento</option>
+                        <option value="Saúde e Segurança do Trabalho">Saúde e Segurança do Trabalho</option>
+                    </select>
+                </div>
+
+                <button type="button" id="btn_add_companie">Adicionar Empresa</button>
+                <button type="button" id="btn_edit_companie">Editar Empresa</button>
+            </form>
+        </div>
+    </section>
+
+    <script  type="module" src="" defer></script>
 </body>
 </html>
