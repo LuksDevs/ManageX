@@ -1,0 +1,56 @@
+
+
+:root {
+    --color-primary: #9a041f;
+    --color-text: #333;
+}
+
+header {
+    background-color: var(--color-primary);
+    padding-block: 20px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+nav h1 {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+#btn_navbar {
+    background-color: transparent;
+    border: none;
+    display: none;
+    color: #fff;
+    font-size: 1.6rem;
+    cursor: pointer;
+    outline: none;
+}
+
+.navbar {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+.nav-item .nav-link {
+    color: #fff;
+    outline: none;
+}
+
+@media screen and (max-width: 720px) {
+    header nav {
+        width: 90%;
+        justify-content: space-between;
+        margin-inline: auto;
+    }
+    .navbar {
+        display: none;
+    }
+    #btn_navbar {
+        display: block;
+    }
+}

@@ -9,18 +9,19 @@
     <link rel="stylesheet" href="src/css/style.css">
     <title>MANAGEX - Home</title>
 </head>
-<body >
+<body id="Home">
     <header>
         <nav id="nav">
-            <a href="index.html">
-                <h1 class="logo-navbar">MANAGEX</h1>
-            </a>
+            <h1 class="logo-navbar">ManageX</h1>
 
-            <ul id="navbar">
+            <button type="button" id="btn_navbar">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="navbar">
                 <li class="nav-item active">
                     <a href="index.html" class="nav-link">
-                        <i class="fa-solid fa-house"></i> 
-                        Home
+                        <i class="fa-solid fa-table fa-lg"></i> 
+                        Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
@@ -44,57 +45,40 @@
             </ul>
         </nav>
     </header>
-    <section class="manage-home">
-        <h1>MANAGEX</h1>
-        <p>Gerencie usuários, tarefas e empresas de forma simples e eficiente!</p>
-        <a href="#">Comece agora</a>
-    </section>
-    
-    <section class="functions">
-        <h2>Como Funciona?</h2>
-        <div class="functions-content">
-            <h3>Passo a Passo:</h3>
-            <ol>
-                <li>Cadastre usuários, tarefas e empresas facilmente.</li>
-                <li>Gerencie a lista (edite ou exclua registros).</li>
-                <li>Os dados são salvos automaticamente no navegador.</li>
-            </ol>
+    <section class="dashboard">
+        <div class="box-cards">
+            <a href="src/html/companies.html" class="cards">
+                <img class="icon-svg" src="src/svg/empresa.svg" alt="Empresa">
+                <h2>Empresas</h2>
+            </a>
+            <a href="src/html/tasks.html" class="cards">
+                <img class="icon-svg" src="src/svg//tarefa.svg" alt="Tarefas">
+                <h2>Tarefas</h2>
+            </a>
+            <a href="src/html/users.html" class="cards">
+                <img class="icon-svg" src="src/svg/usuario.svg" alt="usuário">
+                <h2>Usuários</h2>
+            </a>
         </div>
-
-        <div class="functions-image">
-            <img src="src/image/img.png" alt="managex">
-
-            <div class="box-btn">
-                <button class="btn-arrow" id="btn_left"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="btn-arrow" id="btn-right"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="container-carousel">
+            <div class="box-carousel">
+                <div class="carousel">
+                    <img src="src/image/companie.png" alt="Empresas" class="carousel-item">
+                    <img src="src/image/task.png" alt="Tarefas" class="carousel-item">
+                    <img src="src/image/user.png" alt="Usuários" class="carousel-item">
+                </div>
             </div>
-            <ul>
-                <li class="line-img active"></li>
-                <li class="line-img"></li>
-                <li class="line-img"></li>
-            </ul>
-        </div>
+            <button class="carousel-btn prev">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn next">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div> 
     </section>
-
-    <section class="benefits">
-        <h2 class="opacityScroll">Por que usar o MANAGEX?</h2>
-
-        <div class="benefits-container">
-            <div class="box-benefits opacityScroll">
-                <div class="benefits-item">🚀 Rápido e Simples</div>
-                <div class="benefits-item">🔐 100% Local</div>
-            </div>
-            
-            <div class="box-benefits opacityScroll">
-                <div class="benefits-item">⚡ Leve e Eficiente</div>
-                <div class="benefits-item">📊 Gerencie Usuários, Tarefas e Empresas</div>
-            </div>
-        </div>
-    </section>
-    
     <footer>
         <p>Projeto criado para estudos de desenvolvimento web. &copy; 2025 MANAGEX</p>
     </footer>
-
+    <script src="src/js/home.js"></script>
 </body>
 </html>
