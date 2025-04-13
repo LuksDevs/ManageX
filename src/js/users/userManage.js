@@ -1,6 +1,6 @@
 import { getUsers, saveUser } from './storage.js'
 import { showModal } from '../modal.js'
-import { closeFormModal, loadUsers, clearFormFieldsUser, fillFormForEditUser, openFormModal } from '../ui.js'
+import { closeFormModal, loadUsers, clearFormFieldsUser, fillFormForEditUser, openFormModal, currentDate } from '../ui.js'
 
 const users = getUsers()
 
@@ -18,10 +18,6 @@ export function addUser(event) {
     const telUser = document.querySelector('#tel_user').value
     const positionUser = document.querySelector('#position_user').value
 
-    const date = String(d.getDate()).padStart(2, '0')
-    const month = String(d.getMonth() + 1).padStart(2, '0')
-    const year = d.getFullYear()
-
     if(!nameUser || !emailUser || !telUser || !positionUser) {
         showModal('#8C031C', iconError, 'Todos os campos obrigatórios devem ser preenchidos!')
         return
@@ -33,7 +29,7 @@ export function addUser(event) {
         telephone: telUser,
         position: positionUser,
         status: 'ativo',
-        date: `${date}/${month}/${year}`
+        date: currentDate()
     }
 
     users.push(user)

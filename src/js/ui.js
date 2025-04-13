@@ -45,7 +45,6 @@ export function loadTasks(taskList) {
 export function clearFormFieldsTask() {
     document.querySelector('#title_task').value = ''
     document.querySelector('#description_task').value = ''
-    document.querySelector('#date_create').value = ''
     document.querySelector('#date_due').value = ''
 }
 
@@ -158,6 +157,47 @@ export function clearFormFieldsCompanie() {
     document.querySelector('#setor').value = ''
 }
 
+export function currentDate() {
+    let currentDate = new Date()
+
+    let date = String(currentDate.getDate()).padStart(2, '0')
+    let month = String(currentDate.getMonth()).padStart(2, '0')
+    let year = currentDate.getFullYear()
+
+    return `${date}/${month}/${year}`
+}
+const inputsTelephone = document.querySelectorAll('.telephone')
+inputsTelephone.forEach(input => formatTelephone(input))
+
+function formatTelephone(input) {
+    input.addEventListener('input', () => {
+        let format = input.value
+
+        format = format.replace(/\D/g, '')
+        format = format.replace(/^(\d{2})(\d)/g, '($1) $2')
+        format = format.replace(/(\d{5})(\d)/, '$1-$2')
+
+        input.value = format
+    })
+}
+
+const inputsCNPJ = document.querySelectorAll('.cnpj')
+inputsCNPJ.forEach(input => formatCnpj(input))
+
+function formatCnpj(input) {
+    input.addEventListener('input', () => {
+      let cnpj = input.value
+
+      cnpj = cnpj.replace(/\D/g, '')
+  
+      cnpj = cnpj.replace(/^(\d{2})(\d)/, '$1.$2')
+      cnpj = cnpj.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
+      cnpj = cnpj.replace(/\.(\d{3})(\d)/, '.$1/$2')
+      cnpj = cnpj.replace(/(\d{4})(\d)/, '$1-$2')
+  
+      input.value = cnpj
+    })
+}
 // Open/Close Form Modal
 export function openFormModal() {
     document.querySelector('.modal-section').style.display = 'block'

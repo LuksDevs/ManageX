@@ -40,22 +40,23 @@
     max-width: 950px;
     display: flex;
     justify-content: center;
+    margin-top: 20px;
     margin-inline: auto;
     position: relative;
+    padding-block-end: 30px;
 }
 
 .box-carousel {
     box-shadow: 0 0 12px rgba(0,0,0,0.5);
     border-radius: 7px;
     max-width: 900px;
-    margin-top: 20px;
     overflow: hidden;
     position: relative;
     width: 100%;
 }
 .carousel {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 1s ease-in-out;
 }
 
 .carousel-item {
@@ -84,14 +85,34 @@
 .carousel-btn.next {
     right: -20px;
 }
+.list-indicator {
+    display: flex;
+    gap: 15px;
+    position: absolute;
+    bottom: 6px;
+    list-style: none;
+}
+.indicator {
+    background-color: #9a042098;
+    border-radius: 10px;
+    height: 6px;
+    width: 35px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.indicator.active {
+    background-color: var(--color-primary);
+}
 
 footer {
-    position: absolute;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100vw;
     background-color: #cccc;
     padding: 10px;
+    margin-top: 7px;
 
     & p {
         text-align: center;

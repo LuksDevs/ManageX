@@ -6,7 +6,6 @@
         <!-- import font awesome cdn -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         
-        
         <!-- styles CSS -->
         <link rel="stylesheet" href="../css/style.css">
         <title>MANAGEX - Tarefas</title>
@@ -92,7 +91,7 @@
                 </div>
                 <div>
                     <label for="cnpj_companie">CNPJ</label>
-                    <input type="text" id="cnpj_companie" placeholder="00.000.000/0000-00">
+                    <input type="text" id="cnpj_companie" placeholder="00.000.000/0000-00" class="cnpj" maxlength="18">
                 </div>
                 <div>
                     <label for="address_companie">Endereço:</label>
@@ -100,7 +99,7 @@
                 </div>
                 <div>
                     <label for="tel_companie">Telefone:</label>
-                    <input type="tel" id="tel_companie" placeholder="(99) 9 9999-9999">
+                    <input type="tel" id="tel_companie" class="telephone" placeholder="(99) 9 9999-9999" maxlength="15">
                 </div>
                 <div>
                     <label for="email_companie">E-mail</label>

@@ -2,11 +2,17 @@ const carousel = document.querySelector('.carousel')
 const items = document.querySelectorAll('.carousel-item')
 const prevBtn = document.querySelector('.carousel-btn.prev')
 const nextBtn = document.querySelector('.carousel-btn.next')
+const indicators = document.querySelectorAll('.indicator')
+
 let index = 0
 
 function updateCarousel() {
-    const width = items[0].clientWidth
-    carousel.style.transform = `translateX(-${index * width}px)`
+    const itemWidth = items[0].clientWidth
+    carousel.style.transform = `translateX(-${index * itemWidth}px)`
+
+    indicators.forEach((ind, i) => {
+        ind.classList.toggle('active', i === index)
+    })
 }
 
 nextBtn.addEventListener('click', () => {
@@ -19,4 +25,9 @@ prevBtn.addEventListener('click', () => {
     updateCarousel()
 })
 
-window.addEventListener('resize', updateCarousel)
+indicators.forEach((indicator, i) => {
+    indicator.addEventListener('click', () => {
+        index = i
+        updateCarousel()
+    })
+})

@@ -1,6 +1,6 @@
 import { getTasks, saveTasks } from './storage.js'
 import { showModal } from '../modal.js'
-import { openFormModal, closeFormModal, clearFormFieldsTask, loadTasks, fillFormForEditTask } from '../ui.js'
+import { openFormModal, closeFormModal, clearFormFieldsTask, loadTasks, fillFormForEditTask, currentDate } from '../ui.js'
 
 let tasks = getTasks()
 
@@ -14,10 +14,9 @@ export function addTask(event) {
     const title = document.querySelector('#title_task').value
     const description = document.querySelector('#description_task').value
     const priority = document.querySelector('input[name="priority"]:checked')?.value
-    const dateCreate = document.querySelector('#date_create').value
     const dateDue = document.querySelector('#date_due').value || 'Não definido'
 
-    if(!title || !description || !dateCreate) {
+    if(!title || !description) {
         showModal('#8C031C', iconError, 'Todos os campos obrigatórios devem ser preenchidos!')
         return
     }
@@ -26,7 +25,7 @@ export function addTask(event) {
         title,
         description,
         priority,
-        create: dateCreate,
+        create: currentDate(),
         validity: dateDue,
         status: 'pendente'
     }

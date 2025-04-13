@@ -1,7 +1,7 @@
 
 import { getCompanies, saveCompanie } from './storage.js'
 import { showModal } from '../modal.js'
-import { loadCompanie, openFormModal, closeFormModal, clearFormFieldsCompanie, fillFormForEditCompanie } from '../ui.js'
+import { loadCompanie, openFormModal, closeFormModal, clearFormFieldsCompanie, fillFormForEditCompanie, currentDate } from '../ui.js'
 
 const companies = getCompanies()
 
@@ -17,17 +17,10 @@ export function addCompanie() {
     const emailCompanie = document.querySelector('#email_companie').value
     const setorCompanie = document.querySelector('#setor').value
 
-    let d = new Date()
-
-    const date = String(d.getDate()).padStart(2, '0')
-    const month = String(d.getMonth() + 1).padStart(2, '0')
-    const year = d.getFullYear()
-
     if(!nameCompanie || !cnpjCompanie || !addressCompanie || !telCompanie || !emailCompanie || !setorCompanie) {
         showModal('#8C031C', iconError, 'Todos os campos obrigatórios devem ser preenchidos!')
         return
     }
-
     const companie = {
         companie: nameCompanie,
         cnpj: cnpjCompanie,
@@ -35,7 +28,7 @@ export function addCompanie() {
         telephone: telCompanie,
         email: emailCompanie,
         setor: setorCompanie,
-        date: `${date}/${month}/${year}`
+        date: currentDate()
     }
     companies.push(companie)
     saveCompanie(companies)
