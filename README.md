@@ -37,8 +37,8 @@ Este projeto foi criado com o propósito de aplicar e reforçar conhecimentos em
 ## 🧑‍💻 Autor
 
 Desenvolvido por *Lucas Ferreira* como parte de **estudos de desenvolvimento web.**
-📫 Contato: seuemail@exemplo.com
-🔗 GitHub: @LuksDevs
+- 📫 Contato: LuksDevs@outlook.com.br
+- 🔗 GitHub: @LuksDevs
 
 ---
 
